@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Likewise Assignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="main.js"></script>
+</head>
+<body style="color: whitesmoke;background-color: rgb(29, 29, 29); margin-left: 5%; margin-right: 5%; margin-bottom: 50px; font-size: 23px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+    <h1>Word Scramble Score<span style="color: aqua; font-size: 25px;"> (Open Console for Tests)</span></h1>
+    <p>
+        A popular item in the local paper is the word scramble. In this puzzle, a reader is presented with a series of letters that are for a scrambled word, e.g. 
+        “rwod” can be unscrambled to “word”. Your job is to write a program that will score the difficulty of any particular scrambling of a word. The scores can 
+        be not, poor, fair or hard, depending on whether or not the scramble is not scrambled, easy to solve, a reasonable difficulty to solve or hard to solve, 
+        respectively.
+        <br/>
+        <br/>
+        Your solution will be evaluated for correctness, code quality, design & extensibility, and its testability.
+        <br/>
+        <br/>
+        Word scrambles can be judged by a set of heuristics including if the word looks real or if the scramble has letters in the correct place.
+         <span style="background-color:aqua; color: black; padding: 2px; border-radius: 5px">A scramble looks like a real word if the letters alternate between vowels
+         and consonants (with ‘Y’ being a vowel for this purpose). However, certain combinations of vowels and
+         consonants are allowed:</span>
+    </p>
+    <br/>
+
+<table style="width:100%;border: 1px solid whitesmoke;">
+    <tr style="border: 1px solid black;">
+    <td>AI</td>
+    <td>AY</td>
+    <td>EA</td>
+    <td>EE</td>
+    <td>EO</td>
+    <td>IO</td>
+    <td>OA</td>
+    <td>OO</td>
+    <td>OY</td>
+    <td>OY</td>
+</tr>
+<tr>
+    <td>YO</td>
+    <td>YU</td>
+    <td>BL</td>
+    <td>BR</td>
+    <td>CH</td>
+    <td>CK</td>
+    <td>CL</td>
+    <td>CR</td>
+    <td>DR</td>
+    <td>FL</td>
+</tr>
+<tr>
+    <td>FR</td>
+    <td>GH</td>
+    <td>GL</td>
+    <td>GR</td>
+    <td>KL</td>
+    <td>KR</td>
+    <td>KW</td>
+    <td>PF</td>
+    <td>PL</td>
+    <td>PR</td>
+</tr>
+<tr>
+    <td>SC</td>
+    <td><span style="background-color: aqua; color: black; padding:1px; border-radius: 5px">SCH</span></td>
+    <td><span style="background-color: aqua; color: black; padding:1px; border-radius: 5px">SCR</span></td>
+    <td>SH</td>
+    <td><span style="background-color: aqua; color: black; padding:1px; border-radius: 5px">SHR</span></td>
+    <td>SK</td>
+    <td>SL</td>
+    <td>SM</td> 
+    <td>SN</td>
+    <td>SP</td>
+</tr>
+<tr>
+    <td>SQ</td>
+    <td>ST</td>
+    <td>SW</td>
+    <td>TH</td>
+    <td><span style="background-color: aqua; color: black; padding:1px; border-radius: 5px">THR</span></td>
+    <td>TR</td>
+    <td>TW</td>
+    <td>WH</td>
+    <td>WR</td>
+</tr>
+</table> 
+     
+<br/>
+    <p>
+    <span style="background-color:aqua; color: black;padding: 2px; border-radius: 5px">Also, all double consonants are allowed</span>, and, no other combinations are allowed. For instance, SWR doesn’t look real even though both SW and WR are independently looking real.
+    <br/>
+    <br/>
+    Word classifications:
+    <br/>
+    <br/>
+    <ul>
+        <li>Not – if the word is not scrambled at all</li>
+        <li>Poor – if the first letter or any two consecutive letters are in the correct place and the word
+             doesn’t look real
+        </li>
+        <li>Hard – if none of the letters are in the correct place and the word looks real</li>
+        <li>Fair – for all other cases</li>
+    </ul>
+    </p>
+    <br/>
+    <h2>INPUT</h2>
+    <p>A list where each element is a scramble followed by a space followed by the actual word. The characters are expected to be in upper case.</p>
+    <br/>
+    <h2>OUTPUT</h2>
+
+    <ul>
+    <li>For not – “<span style="color:aqua">{ scrambled }</span> is not a scramble of <span style="color:aqua">{ word }</span>”</li>
+    <li>For poor – “<span style="color:aqua">{ scrambled }</span> is a poor scramble of <span style="color:aqua">{ word }</span>”</li>
+    <li>For fair – “<span style="color:aqua">{ scrambled }</span> is a fair scramble of <span style="color:aqua">{ word }</span>”</li>
+    <li>For hard – “<span style="color:aqua">{ scrambled }</span> is a hard scramble of <span style="color:aqua">{ word }</span>”</li>
+    </ul>
+
+     <br/>
+    <h2>SAMPLE INPUT:</h2>
+    <p style="color:aqua">MAPS SPAM<br/> RIONY IRONY <br/>ONYRI IRONY<br/> IRONY IRONY<br/> INOYR IRONY<br/> IOYRN IRONY</p>
+    <br/>
+    <h2>EXPECTED OUTPUT:</h2>
+    <p><span style="color:aqua">MAPS</span> is a fair scramble of <span style="color:aqua">SPAM</span><br/> <span style="color:aqua">RIONY</span> is a fair scramble of <span style="color:aqua">IRONY</span> <br/>
+        <span style="color:aqua">ONYRI</span> is a hard scramble of <span style="color:aqua">IRONY</span><br/> <span style="color:aqua">IRONY</span> is not a scramble of <span style="color:aqua">IRONY</span> <br/>
+        <span style="color:aqua">INOYR</span> is a fair scramble of <span style="color:aqua">IRONY</span><br/> <span style="color:aqua">IOYRN</span> is a poor scramble of <span style="color:aqua">IRONY</span></p>
+</body>
+</html>
